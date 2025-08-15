@@ -1,0 +1,7 @@
+#spring:
+#  config:
+#    activate:
+#      on-profile: "prod"
+
+#After the config server configuration we doesnt need prod,qa configurations in this is not required we can delete that and manage that
+#configuration using the config server by using the config client

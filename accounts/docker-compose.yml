@@ -1,0 +1,45 @@
+services:
+  accounts:
+    image: "siddhaardh/accounts:m1"
+    container_name: accounts-container
+    ports:
+      - "8080:8080"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - bank
+  loans:
+    image: "siddhaardh/loans:m2"
+    container_name: loans-container
+    ports:
+      - "8090:8090"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - bank
+  cards:
+    image: "siddhaardh/cards:m3"
+    container_name: cards-container
+    ports:
+      - "9000:9000"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - bank
+networks:
+  bank:
+    driver: "bridge"
+
+
+#deploy-setting how much memory touse container each
+#networks all microservices should setting under same network
+#container-name setting name manually for conatiners
+#docker compose up- to start the compose file
+#docker compose down -to stop and delete containers
+#docker compose stop -to stop containers
